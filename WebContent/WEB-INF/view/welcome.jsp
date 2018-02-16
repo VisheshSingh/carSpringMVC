@@ -34,5 +34,10 @@
 <h2>	
 	<h2>Hi,${param.username }</h2>
 	<h3>You've successfully logged in...</h3>
+	<hr>
+	<form action="processInventory" method="post">
+		If you like to see cars<br/>
+		<input type="submit" value="Visit Catalog"/>
+	</form>
 </body>
 </html>

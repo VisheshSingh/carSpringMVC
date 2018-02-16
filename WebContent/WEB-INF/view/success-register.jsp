@@ -30,6 +30,6 @@
 <body>
 	<h2>We are glad to have you!</h2>
 	<h3>Thank you for registering with us</h3>
-	You can now <a href="./home.jsp">Login</a> here.
+	You can now <a href="home.jsp">Login</a> here.
 </body>
 </html>

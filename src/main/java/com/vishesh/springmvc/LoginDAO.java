@@ -1,9 +1,6 @@
 package com.vishesh.springmvc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -94,23 +91,31 @@ public class LoginDAO {
 	}
 
 	// GETTING THE CARS
-	public ResultSet getCars() {
+	public ArrayList<Car> getCars() {
+		ArrayList<Car> carlist = new ArrayList<Car>();
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Car.class)
+				.buildSessionFactory();
+
+		// create a session
+		Session session = factory.getCurrentSession();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			// 1. Get a connection to database
-			Connection myConn = DriverManager.getConnection(url, uname, pass);
+			System.out.println("Please wait...while we fetch the inventory details");
+			// Start a transaction
+			session.beginTransaction();
+			// Save the list of cars to Arraylist: Query result is saved in the form of list
+			carlist = (ArrayList<Car>) session.createQuery("FROM Car").list();
 
-			// 2. Create a statement
-			PreparedStatement myStmt = myConn.prepareStatement(sql2);
+			// commit the transaction
+			session.getTransaction().commit();
 
-			// 3. Execute SQL query
-			ResultSet myRS = myStmt.executeQuery();
-
-			return myRS;
-		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Done!");
+		} catch (HibernateException e) {
+			System.out.println(e.getMessage());
+			System.out.println("error");
+		} finally {
+			factory.close();
 		}
-		return null;
 
+		return carlist;
 	}
 }
