@@ -23,4 +23,12 @@ public class MainController {
 		}
 		return "home";
 	}
+
+	@RequestMapping("/processRegister")
+	public String processRegister(@RequestParam("username") String username, @RequestParam("pwd") String password) {
+
+		LoginDAO LD = new LoginDAO();
+		LD.addUserDetails(username, password);
+		return "success-register";
+	}
 }
