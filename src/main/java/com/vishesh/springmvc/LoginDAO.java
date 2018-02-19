@@ -9,11 +9,11 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 public class LoginDAO {
-	String url = "jdbc:mysql://localhost:3306/car_dealership";
-	String uname = "root";
-	String pass = "admin";
-	String sql = "Select * from login_details where username=? and password=?";
-	String sql2 = "SELECT * FROM model";
+	// String url = "jdbc:mysql://localhost:3306/car_dealership";
+	// String uname = "root";
+	// String pass = "admin";
+	// String sql = "Select * from login_details where username=? and password=?";
+	// String sql2 = "SELECT * FROM model";
 
 	public boolean checkCredentials(String username, String password) {
 		// create session factory

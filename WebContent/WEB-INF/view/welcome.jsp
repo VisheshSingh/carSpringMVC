@@ -15,19 +15,22 @@
 			font-size: 1.1em;
 		}
 		
-	a{
-		background-color: #4CAF50;
-		border: none;
-		color: white;
-		padding: 10px 20px;
-		text-decoration: none;
-		margin: 4px 2px;
-		cursor: pointer;
-	}
+	input[type=submit] {
+		    background-color: #4CAF50;
+		    border: none;
+		    color: white;
+		    font-family:Georgia, serif;
+		    padding: 10px 20px;
+		    text-decoration: none;
+		    margin: 4px 2px;
+		    cursor: pointer;
+		}
+		
+	input[type=submit]:hover{
+			background-color: green;
+		}
 	
-	a:hover{
-		background-color:green;
-	}
+	
 </style>
 </head>
 <body>
